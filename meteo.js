@@ -17,7 +17,7 @@ function get_url() {
 function init_page() {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("demo").innerHTML = this.responseText;
+            document.getElementById("meteo").innerHTML = this.responseText;
         }
     };
     
