@@ -1,9 +1,65 @@
-#url {
-    color: red; 
-    display: none;    
+.clear {
+    background-image: url(https://image.freepik.com/free-photo/blue-sky-with-cloud-clean-energy-power-clear-weather-background_43284-844.jpg)
 }
 
-#meteo {
-    background: black;
-    color: whitesmoke;
+.clouds {
+    background-image: url(https://png.pngtree.com/thumb_back/fw800/20151013/pngtree-Sky-Atmosphere-Clouds-Weather-background-photo-239525.jpg)
+}
+
+.rain {
+    background-image: url(https://ak2.picdn.net/shutterstock/videos/6968032/thumb/1.jpg)
+}
+
+.snow {
+    background-image: url(https://comps.canstockphoto.com/winter-blur-background-stock-images_csp54843853.jpg)
+}
+
+
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    font-size: 3em;
+    position: relative;
+}
+
+i.wi {
+    font-size: 5em;
+    line-height: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+#tooltip {
+    opacity: 0;
+    position: absolute;
+    top :0px;
+    left: 10px;
+    color: #fff;
+    background-color: #222;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 12px;
+    transition: opacity .3s, top .5s;
+   }
+
+h1:hover #tooltip {
+   top: -50px;
+    opacity: 1;
+
 }
