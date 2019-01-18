@@ -1,4 +1,4 @@
-<html>
+<!--<html>
     <head>
         <meta charset="UTF-8">
         <title>Météo du jour</title>
@@ -8,15 +8,10 @@
     <body onload="init_page()">
         <h1>Application Météo</h1>
         <p>
-            Nom de la ville :
-            <input type="text" id="ville" value=""/><br/>
-            <div class="bouton">
-                <p>
-                 <a href="#"onclick="get_temperature()" >envoyer</a>
-               </p>
-              </div>
-            <!--<button type="button" onclick="get_temperature()">Envoyer</button>-->
-            <input type="checkbox" id="url_visibility"/>
+            Nom de la ville:
+            <input type="text" id="ville" value=""><br>
+            <button type="button" onclick="get_temperature()">Envoyer</button>
+            <input type="checkbox" id="url_visibility">
         </p>
         <div id="url">
 
@@ -27,3 +22,39 @@
         <img id="icon" src="">
     </body>
 </html>
+
+-->
+
+<!--TEST SELON VIDEO YT-->
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>La météo !</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    </head>
+
+    <body>
+
+        <section id="app">
+            <h1>
+                <span id="ville"></span>
+                <span id="tooltip">Tapez une autre ville</span>
+            </h1>
+
+            <i class="wi wi-day-rain"></i>
+
+            <h2>
+                <span id="temperature"></span> °C 
+                ( <span id="conditions"></span>)
+            </h2>
+
+        </section>
+
+
+        <script src="meteo.js"></script>
+    </body>
+</html>
+
+<!--FIN TEST-->

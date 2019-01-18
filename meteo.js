@@ -1,8 +1,9 @@
+/*
+
 var xhr = new XMLHttpRequest();
 
 // Forme générale du lien :
-// http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?
-// date=1527811200&opacity=0.9&fill_bound=true&appid={api_key}
+// http://api.openweathermap.org/data/2.5/weather?q=Metz&3c084bd74c2f77f02d6d6c30c2018bf0
 
 var base_url = "http://api.openweathermap.org/data/2.5/weather";
 var city = "Metz";
@@ -14,6 +15,7 @@ function get_url() {
         + "q=" + city + "&"
         + "units=" + units + "&"
         + "appid=" + appid;
+        
 }
 
 function init_page() {
@@ -23,19 +25,18 @@ function init_page() {
 
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
-
             var icon = response.weather[0].icon;
-
-            var src ="http://openweathermap.org/img/w/"+ icon + ".png";
+            var src = "http://openweathermap.org/img/w/" + icon + ".png";
 
             document.getElementById("meteo").innerHTML = temperature;
             document.getElementById("icon").src = src;
         }
     };
     
-    xhr.open("GET", get_url(), true)
-    xhr.send()
+    xhr.open("GET", get_url(), true);
+    xhr.send();
 }
+
 function get_temperature() {
     city = document.getElementById("ville").value;
     xhr.onreadystatechange = function() {
@@ -53,14 +54,86 @@ function get_temperature() {
             var temperature = response.main.temp;
 
             var icon = response.weather[0].icon;
-
-            var src ="http://openweathermap.org/img/w/"+ icon + ".png";
-
+            var src = "http://openweathermap.org/img/w/" + icon + ".png";
+            
             document.getElementById("meteo").innerHTML = temperature;
             document.getElementById("icon").src = src;
+
         }
     };
     
-    xhr.open("GET", get_url(), true)
-    xhr.send()
+    xhr.open("GET", get_url(), true);
+    xhr.send();
 }
+
+*/
+
+const weatherIcons = {
+    "Rain": "wi wi-day-rain",
+    "Clouds": "wi wi-day-cloudy",
+    "Clear": "wi wi-day-sunny",
+    "Snow": "wi wi-day-snow",
+    "mist": "wi wi-day-fog",
+    "Drizzle": "wi wi-day-sleet",
+}
+
+function capitalize(str) {
+    return str[0].toUpperCase() + str.slice(1);
+}
+
+async function main(withIP = true) {
+    let ville;
+    if (withIP) {
+
+    
+    const ip = await fetch('https://api.ipify.org?format=json')
+        .then(resultat => resultat.json())
+        .then(json => json.ip);
+
+
+
+    ville = await fetch('http://api.ipstack.com/' + ip + '?access_key=c0fa19618b5392d9c6e9fbfafae0ea9e')
+        .then(resultat => resultat.json())
+        .then(json => json.city);
+    } else 
+    ville = document.querySelector('#ville').textContent;
+
+
+    const meteo = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
+                .then(resultat => resultat.json())
+                .then(json => json)
+
+ displayWeatherInfos (meteo)
+}  
+
+function displayWeatherInfos (data) {
+    const name = data.name;
+    const temperature = data.main.temp;
+    const conditions = data.weather[0].main;
+    const description = data.weather[0].description;
+
+    document.querySelector('#ville').textContent = name;
+    document.querySelector('#temperature').textContent = temperature; // Math.round(temperature) si on veut l'arrondir
+    document.querySelector("#conditions").textContent = capitalize(description);
+    document.querySelector('i.wi').className = weatherIcons[conditions];
+
+    document.body.className = conditions.toLowerCase();
+
+    const ville = document.querySelector('#ville');
+
+    ville.addEventListener('click', () => {
+        ville.contentEditable = true;
+    });
+
+    ville.addEventListener('keydown', (e) => {
+        if(e.keyCode === 13) {  // 13 parce que le code de "entré" est 13
+            e.preventDefault();
+            ville.contentEditable = false;
+            main(false);
+        }
+    })
+
+}
+
+
+main();
