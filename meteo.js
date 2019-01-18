@@ -111,6 +111,8 @@ function displayWeatherInfos (data) {
     const temperature = data.main.temp;
     const conditions = data.weather[0].main;
     const description = data.weather[0].description;
+    const humidite = data.main.humidity;
+    const vitVent = data.main.wind.speed;
 
     document.querySelector('#ville').textContent = name;
     document.querySelector('#temperature').textContent = temperature; // Math.round(temperature) si on veut l'arrondir
