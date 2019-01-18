@@ -82,7 +82,7 @@ function capitalize(str) {
 
 async function main(withIP = true) {
     let ville;
-    if (withIP) {
+   /* if (withIP) {
 
     
     const ip = await fetch('https://api.ipify.org?format=json')
@@ -94,9 +94,9 @@ async function main(withIP = true) {
     ville = await fetch('http://api.ipstack.com/' + ip + '?access_key=c0fa19618b5392d9c6e9fbfafae0ea9e')
         .then(resultat => resultat.json())
         .then(json => json.city);
-    } else 
-    ville = document.querySelector('#ville').textContent;
-
+    } else*/ 
+    //ville = document.querySelector('#ville').textContent;
+    ville="metz"
 
     const meteo = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
@@ -111,9 +111,11 @@ function displayWeatherInfos (data) {
     const conditions = data.weather[0].main;
     const description = data.weather[0].description;
     const humidite = data.main.humidity;
-    const vitVent = data.main.wind.speed;
+    const vitVent = data.wind.speed;
     const pression = data.main.pressure;
     const update = data.main.lastupdate;
+
+console.log(data);
 
     document.querySelector('#ville').textContent = name;
     document.querySelector('#temperature').textContent = temperature; // Math.round(temperature) si on veut l'arrondir
