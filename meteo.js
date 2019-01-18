@@ -126,7 +126,7 @@ function displayWeatherInfos (data) {
     });
 
     ville.addEventListener('keydown', (e) => {
-        if(e.keyCode === 13) {  // 13 parce que le code de entré est 13
+        if(e.keyCode === 13) {  // 13 parce que le code de "entré" est 13
             e.preventDefault();
             ville.contentEditable = false;
             main(false);
