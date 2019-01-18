@@ -83,7 +83,7 @@ function capitalize(str) {
 
 async function main(withIP = true) {
     let ville;
-    if (withIP) {
+    /*if (withIP) {
 
     
     const ip = await fetch('https://api.ipify.org?format=json')
@@ -95,17 +95,40 @@ async function main(withIP = true) {
     ville = await fetch('http://api.ipstack.com/' + ip + '?access_key=c0fa19618b5392d9c6e9fbfafae0ea9e')
         .then(resultat => resultat.json())
         .then(json => json.city);
-    } else 
-    ville = document.querySelector('#ville').textContent;
+    } else */
+    ville = "metz" /*document.querySelector('#ville').textContent;*/
 
 
     const meteo = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
                 .then(json => json)
 
+    const prevision = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
+                .then(resultat => resultat.json())
+                .then(json => json)
+
  displayWeatherInfos (meteo)
+ displayForcastInfo (prevision)
+
+ 
 }  
 
+function displayForcastInfo (data) {
+    const tempun = data.list[7].main.temp
+    const condun = data.list[7].weather[0].main
+    const tempdeux = data.list[15].main.temp
+    const conddeux = data.list[15].weather[0].main
+    const temptrois = data.list[23].main.temp
+    const condtrois = data.list[23].weather[0].main
+    const tempquatre = data.list[31].main.temp
+    const condquatre = data.list[31].weather[0].main
+    const tempcinq = data.list[39].main.temp
+    const condcinq = data.list[39].weather[0].main
+
+   
+
+
+}
 function displayWeatherInfos (data) {
     const name = data.name;
     const temperature = data.main.temp;
