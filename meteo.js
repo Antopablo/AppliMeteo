@@ -1,5 +1,4 @@
 /*
-
 var xhr = new XMLHttpRequest();
 
 // Forme générale du lien :
@@ -113,11 +112,17 @@ function displayWeatherInfos (data) {
     const description = data.weather[0].description;
     const humidite = data.main.humidity;
     const vitVent = data.main.wind.speed;
+    const pression = data.main.pressure;
+    const update = data.main.lastupdate;
 
     document.querySelector('#ville').textContent = name;
     document.querySelector('#temperature').textContent = temperature; // Math.round(temperature) si on veut l'arrondir
     document.querySelector("#conditions").textContent = capitalize(description);
     document.querySelector('i.wi').className = weatherIcons[conditions];
+    document.querySelector('#txhumide').textContent = humidite;
+    document.querySelector('#vitesse').textContent = vitVent;
+    document.querySelector('#pression').textContent = pression;
+    document.querySelector('#update').textContent= update;
 
     document.body.className = conditions.toLowerCase();
 
