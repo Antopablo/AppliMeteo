@@ -125,8 +125,6 @@ function displayForcastInfo (data) {
     const tempcinq = data.list[39].main.temp
     const condcinq = data.list[39].weather[0].main
 
-    console.log(condcinq)
-    console.log(tempquatre)
    
 
 
