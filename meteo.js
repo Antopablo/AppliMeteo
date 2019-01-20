@@ -1,5 +1,4 @@
 /*
-
 var xhr = new XMLHttpRequest();
 
 // Forme générale du lien :
@@ -162,11 +161,22 @@ function displayWeatherInfos (data) {
     const temperature = data.main.temp;//temperature
     const conditions = data.weather[0].main;//icon
     const description = data.weather[0].description;//description
+    const humidite = data.main.humidity;//taux d'humidité
+    const vitVent = data.wind.speed;//vitesse du vent
+    const pression = data.main.pressure;//pression
+    const longitude = data.coord.lon;//longitude
+    const latitude = data.coord.lat;//latitude
+    const update = data.lastupdate;
 
     document.querySelector('#ville').textContent = name;
     document.querySelector('#temperature').textContent = Math.round(temperature*10)/10; 
     document.querySelector("#conditions").textContent = capitalize(description);
     document.querySelector('i.wi').className = weatherIcons[conditions];
+    document.querySelector('#txhumide').textContent = humidite;
+    document.querySelector('#vitesse').textContent = vitVent;
+    document.querySelector('#pression').textContent = pression;
+    document.querySelector('#longitude').textContent= longitude;
+    document.querySelector('#latitude').textContent = latitude;
 
     document.body.className = conditions.toLowerCase();
 
