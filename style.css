@@ -4,8 +4,8 @@
 
 .clouds {
     background-image: url(https://png.pngtree.com/thumb_back/fw800/20151013/pngtree-Sky-Atmosphere-Clouds-Weather-background-photo-239525.jpg);
-    
-        
+
+
 }
 
 .rain {
@@ -17,7 +17,7 @@
 }
 
 body {
-    
+
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     color: #fff;
@@ -44,7 +44,7 @@ h2 {
 #tooltip {
     opacity: 0;
     position: absolute;
-    top :0px;
+    top: 0px;
     left: 10px;
     color: #fff;
     background-color: #222;
@@ -52,27 +52,29 @@ h2 {
     padding: 10px;
     font-size: 12px;
     transition: opacity .3s, top .5s;
-   }
+}
 
 h1:hover #tooltip {
-   top: -50px;
+    top: -50px;
     opacity: 1;
 
 }
 
-txhumide{
+txhumide {
     font-size: 12px;
     color: white;
 }
 
-vitesse{
+vitesse {
     font-size: 12px;
     color: white;
 }
 
 #app {
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    width: 50%;
+    margin: auto;
 }
 
 #fonctionSup {
@@ -91,7 +93,9 @@ vitesse{
     justify-content: space-around;
 }
 
-.tempPrevisions { font-size: 25px;}
+.tempPrevisions {
+    font-size: 25px;
+}
 
 
 
@@ -103,83 +107,85 @@ vitesse{
 
 
 
-@media screen and (max-width: 1280px) { 
+@media screen and (max-width: 1280px) {
 
     body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    background-size: cover;
-    background-repeat: repeat;
-}
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        background-size: cover;
+        background-repeat: repeat;
+    }
 
-h1 {
-    font-size: 3em;
-    position: relative;
-}
+    h1 {
+        font-size: 3em;
+        position: relative;
+    }
 
-i.wi {
-    font-size: 5em;
-    line-height: 1.5em;
-}
+    i.wi {
+        font-size: 5em;
+        line-height: 1.5em;
+    }
 
-h2 {
-    font-size: 2em;
-}
+    h2 {
+        font-size: 2em;
+    }
 
-#tooltip {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    width: 150px;
-    left: 170px;
-    color: #fff;
-    background-color: #222;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 12px;
-    transition: opacity .3s, top .5s;
-   }
+    #tooltip {
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        width: 150px;
+        left: 170px;
+        color: #fff;
+        background-color: #222;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 12px;
+        transition: opacity .3s, top .5s;
+    }
 
-h1:hover #tooltip {
-    top : -0px
-    opacity: 1;
+    h1:hover #tooltip {
+        top: -0px opacity: 1;
 
-}
+    }
 
-txhumide{
-    font-size: 12px;
-    color: white;
-}
+    txhumide {
+        font-size: 12px;
+        color: white;
+    }
 
-vitesse{
-    font-size: 12px;
-    color: white;
-}
+    vitesse {
+        font-size: 12px;
+        color: white;
+    }
 
-#app {
-    display: block;
-    justify-content: space-around
-}
+    #app {
+        display: block;
+        justify-content: space-around
+    }
 
-#fonctionSup {
-    margin-top: auto;
-    margin-bottom: auto;
-}
+    #fonctionSup {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
 
-#titrePrevisions {
-    margin-top: 50px;
-    text-decoration: underline;
-}
+    #titrePrevisions {
+        margin-top: 50px;
+        text-decoration: underline;
+    }
 
-#previsions {
-    margin-top: 30px;
-    display: block;
-    margin: auto;
-}
+    #previsions {
+        margin-top: 30px;
+        display: block;
+        margin: auto;
+    }
 
-.tempPrevisions { font-size: 20px; margin-top: 50px;}
+    .tempPrevisions {
+        font-size: 20px;
+        margin-top: 50px;
+    }
 
 
 
