@@ -166,6 +166,7 @@ function displayWeatherInfos (data) {
     const pression = data.main.pressure;//pression
     const longitude = data.coord.lon;//longitude
     const latitude = data.coord.lat;//latitude
+    const update = data.lastupdate;
 
     document.querySelector('#ville').textContent = name;
     document.querySelector('#temperature').textContent = Math.round(temperature*10)/10; 
