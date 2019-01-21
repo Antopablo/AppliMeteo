@@ -94,6 +94,7 @@ async function main(withIP = true) {
     ville = await fetch('http://api.ipstack.com/' + ip + '?access_key=c0fa19618b5392d9c6e9fbfafae0ea9e')
         .then(resultat => resultat.json())
         .then(json => json.city);
+
     } else 
     ville = document.querySelector('#ville').textContent;*/
     let ville;
@@ -129,6 +130,8 @@ function displayForcastInfo (data) {
     const tempquatre = data.list[31].main.temp;//temperature j+4
     const condquatre = data.list[31].weather[0].main;// icon j+4
    // const desquatre = data.list[31].weather[0].description;// description j+4
+
+    
 
     const tempcinq = data.list[39].main.temp;//temperature j+5
     const condcinq = data.list[39].weather[0].main;// icon j+5
@@ -167,6 +170,8 @@ function displayWeatherInfos (data) {
     const longitude = data.coord.lon;//longitude
     const latitude = data.coord.lat;//latitude
     const update = data.lastupdate;
+
+
 
 
 
