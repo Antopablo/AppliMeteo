@@ -28,20 +28,31 @@
 <!--TEST SELON VIDEO YT-->
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>La météo !</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
-    </head>
 
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>La météo !</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+     <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
 
-        <section id="app">
+<body>
+
+    <section id="app">
+        <div id="meteoActu">
             <h1>
                 <span id="ville"></span>
-                <span id="tooltip">Tapez une autre ville</span>
+                <span id="tooltip">Saississez une autre ville</span>
             </h1>
+<div id="IconEtTemp">
+            <div>
+                Longitude : <span id="longitude"></span>;
+                Latitude : <span id="latitude"></span><br />
+                Taux d'humidité : <span id="txhumide"></span>%<br />
+                Vitesse du vent : <span id="vitesse"></span>m/s<br />
+                Pression atmosphérique : <span id="pression"></span>hPa<br />
+            </div>
 
             <h3>
                 Longitude:<span id="longitude"></span>;
@@ -54,37 +65,53 @@
                 <span id="temperature"></span> °C
                 ( <span id="conditions"></span>)
             </h2>
-
-            <h3>
-                Taux d'humidité: <span id="txhumide"></span>%</br>
-                Vitesse du vent: <span id="vitesse"></span>m/s</br>
-                Pression atmosphérique: <span id="pression"></span>hPa</br>
-            </h3>
-
-        </section>
-
-
-        <section id="previsions">
-            <span id="tempun"></span> 
-           ( <span id="desun"></span> )
-
-            <span id="tempdeux"></span>
-            ( <span id="desdeux"></span>)
-
-            <span id="temptrois"></span>
-            ( <span id="destrois"></span>)
-
-            <span id="tempquatre"></span>
-            ( <span id="desquatre"></span>)
-
-            <span id="tempcinq"></span>
-            ( <span id="descinq"></span>)
-        </section>
+        </div>
+    </div>
 
 
 
-        <script src="meteo.js"></script>
-    </body>
+    </section>
+<div id="container_previsions">
+    <h2 id="titrePrevisions">Prévisions pour les 5 prochains jours</h2>
+
+    <section id="previsions">
+        <div id="j1"  class="tempPrevisions">
+            <span id="tempun"></span>°C<br />
+            <i class="wi wi-day-rain" id="condun"></i><br />
+          <!--  ( <span id="desun"></span> )<br />-->
+        </div>
+
+        <div id="j2"  class="tempPrevisions">
+            <span id="tempdeux"></span>°C<br />
+            <i class="wi wi-day-rain" id="conddeux"></i><br />
+        <!--  ( <span id="desdeux"></span>)<br />-->
+        </div>
+
+        <div id="j3"  class="tempPrevisions">
+            <span id="temptrois"></span>°C<br />
+            <i class="wi wi-day-rain" id="condtrois"></i><br />
+          <!--    ( <span id="destrois"></span>)<br />-->
+        </div>
+
+        <div id="j4"  class="tempPrevisions">
+            <span id="tempquatre"></span>°C<br />
+            <i class="wi wi-day-rain" id="condquatre"></i><br />
+          <!--    ( <span id="desquatre"></span>)<br />-->
+        </div>
+        <div id="j5"  class="tempPrevisions">
+            <span id="tempcinq"></span>°C<br />
+            <i class="wi wi-day-rain" id="condcinq"></i><br />
+           <!--   ( <span id="descinq"></span>)<br />-->
+        </div>
+
+
+    </section>
+</div>
+    
+
+    <script src="meteo.js"></script>
+</body>
+
 </html>
 
 <!--FIN TEST-->
