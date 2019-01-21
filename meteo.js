@@ -115,51 +115,102 @@ async function main(withIP = true) {
 }  
 //previsions
 function displayForcastInfo (data) {
+
+    var jours = new Array("Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam");
+    var mois = new Array("Janv", "Févr", "Mars", "Avr", "Mai", "Juin", "Juill", "Aout", "Sept", "Oct", "Nov", "Dec");
+
+    
+   
+
     const tempun = data.list[7].main.temp;// temperature j+1
     const condun = data.list[7].weather[0].main;// icon j +1
-  //  const desun = data.list[7].weather[0].description;// description j+1
+    //  const desun = data.list[7].weather[0].description;// description j+2
+    var plusun = new Date();
+    plusun.setTime(plusun.getTime() +24 * 3600 * 1000);
+    var datePlusUn = jours[plusun.getDay()] + " ";   
+     datePlusUn += plusun.getDate() + " ";   
+     datePlusUn += mois[plusun.getMonth()] + " ";  //datePlusUn --> date à j+1
+     //console.log(datePlusUn);
 
     const tempdeux = data.list[15].main.temp;// temperature j+2
     const conddeux = data.list[15].weather[0].main;// icon j+2
-  //  const desdeux = data.list[15].weather[0].description;// description j+2
+    //  const desdeux = data.list[15].weather[0].description;// description j+2
+    var plusdeux = new Date();
+    plusdeux.setTime(plusdeux.getTime() +48 * 3600 * 1000);
+    var datePlusDeux = jours[plusdeux.getDay()] + " ";   
+    datePlusDeux += plusdeux.getDate() + " ";   
+    datePlusDeux += mois[plusdeux.getMonth()] + " ";  //datePlusDeux --> date à j+2
+    //console.log(datePlusDeux); 
 
     const temptrois = data.list[23].main.temp;// temperature j+3
     const condtrois = data.list[23].weather[0].main;// icon j+3
    // const destrois = data.list[23].weather[0].description;// descrition j+4
+   var plustrois = new Date();
+   plustrois.setTime(plustrois.getTime() +72 * 3600 * 1000);
+   var datePlusTrois = jours[plustrois.getDay()] + " ";   
+   datePlusTrois += plustrois.getDate() + " ";   
+   datePlusTrois += mois[plustrois.getMonth()] + " ";  //datePlusTrois -->date à j+3 
+   //console.log(datePlusTrois);
 
     const tempquatre = data.list[31].main.temp;//temperature j+4
     const condquatre = data.list[31].weather[0].main;// icon j+4
    // const desquatre = data.list[31].weather[0].description;// description j+4
-
-    
+   var plusquatre = new Date();
+   plusquatre.setTime(plusquatre.getTime() +96 * 3600 * 1000);
+   var datePlusQuatre = jours[plusquatre.getDay()] + " ";   
+    datePlusQuatre += plusquatre.getDate() + " ";   
+    datePlusQuatre += mois[plusquatre.getMonth()] + " ";  //datePlusQuatre --> date à j+4
+    //console.log(datePlusQuatre);
 
     const tempcinq = data.list[39].main.temp;//temperature j+5
     const condcinq = data.list[39].weather[0].main;// icon j+5
-  //  const descinq = data.list[39].weather[0].description;// descrition j+5
+    //  const descinq = data.list[39].weather[0].description;// descrition j+5
+    var pluscinq = new Date();
+    pluscinq.setTime(pluscinq.getTime() +120 * 3600 * 1000);
+    var datePlusCinq = jours[pluscinq.getDay()] + " ";   
+    datePlusCinq += pluscinq.getDate() + " ";   
+    datePlusCinq += mois[pluscinq.getMonth()] + " ";  //datePlusCinq --> date à j+5
+    //console.log(datePlusCinq);
+
+
 
     document.querySelector('#tempun').textContent = Math.round(tempun*10)/10; // Math.round(temperature*10)/10 arrondi un chiffre derriere la virgule
     document.querySelector('#condun').className = weatherIcons[condun];
    // document.querySelector("#desun").textContent = capitalize(desun);
+   // document.querySelector('').className =  datePlusUn;
 
     document.querySelector('#tempdeux').textContent = Math.round(tempdeux*10)/10;
     document.querySelector('#conddeux').className = weatherIcons[conddeux];
     //document.querySelector("#desdeux").textContent = capitalize(desdeux);
+    // document.querySelector('').className =  datePlusDeux;
 
     document.querySelector('#temptrois').textContent = Math.round(temptrois*10)/10;
     document.querySelector('#condtrois').className = weatherIcons[condtrois];
    // document.querySelector("#destrois").textContent = capitalize(destrois);
+   // document.querySelector('').className =  datePlusTrois;
 
     document.querySelector('#tempquatre').textContent = Math.round(tempquatre*10)/10;
     document.querySelector('#condquatre').className = weatherIcons[condquatre];
     //document.querySelector("#desquatre").textContent = capitalize(desquatre);
+    // document.querySelector('').className =  datePlusQuatre;
 
     document.querySelector('#tempcinq').textContent = Math.round(tempcinq*10)/10;
     document.querySelector('#condcinq').className = weatherIcons[condcinq];
     //document.querySelector("#descinq").textContent = capitalize(descinq);
-   
+    // document.querySelector('').className =  datePlusCinq;
 
 }
 function displayWeatherInfos (data) {
+
+    var jours = new Array("Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam");
+    var mois = new Array("Janv", "Févr", "Mars", "Avr", "Mai", "Juin", "Juill", "Aout", "Sept", "Oct", "Nov", "Dec");
+
+    var date = new Date ();
+    var dateJour = jours[date.getDay()] + " ";   
+    dateJour += date.getDate() + " ";   
+    dateJour += mois[date.getMonth()] + " ";   // dateJour --> date du jour
+
+
     const name = data.name;
     const temperature = data.main.temp;//temperature
     const conditions = data.weather[0].main;//icon
@@ -170,6 +221,7 @@ function displayWeatherInfos (data) {
     const longitude = data.coord.lon;//longitude
     const latitude = data.coord.lat;//latitude
     const update = data.lastupdate;
+   // console.log(dateJour);
 
 
 
@@ -184,6 +236,7 @@ function displayWeatherInfos (data) {
     document.querySelector('#pression').textContent = pression;
     document.querySelector('#longitude').textContent= longitude;
     document.querySelector('#latitude').textContent = latitude;
+    document.querySelector('').textContent = dateJour;
 
     document.body.className = conditions.toLowerCase();
 
