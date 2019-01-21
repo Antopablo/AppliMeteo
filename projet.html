@@ -45,11 +45,14 @@
                 <span id="ville"></span>
                 <span id="tooltip">Saississez une autre ville</span>
             </h1>
-
-            <h3>
-                Longitude:<span id="longitude"></span>;
-                Latitude:<span id="latitude"></span>
-            </h3>
+<div id="IconEtTemp">
+            <div>
+                Longitude : <span id="longitude"></span>;
+                Latitude : <span id="latitude"></span><br />
+                Taux d'humidité : <span id="txhumide"></span>%<br />
+                Vitesse du vent : <span id="vitesse"></span>m/s<br />
+                Pression atmosphérique : <span id="pression"></span>hPa<br />
+            </div>
 
             <i class="wi wi-day-rain"></i>
 
@@ -58,19 +61,11 @@
                 ( <span id="conditions"></span>)
             </h2>
         </div>
+    </div>
 
-        <div id="fonctionSup">
-
-            <h3>
-                Taux d'humidité: <span id="txhumide"></span>%<br />
-                Vitesse du vent: <span id="vitesse"></span>m/s<br />
-                Pression atmosphérique: <span id="pression"></span>hPa<br />
-            </h3>
-
-        </div>
 
     </section>
-
+<div id="container_previsions">
     <h2 id="titrePrevisions">Prévisions pour les 5 prochains jours</h2>
 
     <section id="previsions">
@@ -102,7 +97,9 @@
             <i class="wi wi-day-rain" id="condcinq"></i><br />
            <!--   ( <span id="descinq"></span>)<br />-->
         </div>
+
     </section>
+</div>
     
 
     <script src="meteo.js"></script>

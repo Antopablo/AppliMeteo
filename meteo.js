@@ -81,11 +81,11 @@ function capitalize(str) {
 }
 
 async function main(withIP = true) {
-    let ville;
-    /*if (withIP) {
+   /* let ville;
+    if (withIP) {
 
     
-    const ip = await fetch('https://api.ipify.org?format=json')
+    const ip = await fetch('https://api.ipify.org?format=json') 
         .then(resultat => resultat.json())
         .then(json => json.ip);
 
@@ -94,9 +94,10 @@ async function main(withIP = true) {
     ville = await fetch('http://api.ipstack.com/' + ip + '?access_key=c0fa19618b5392d9c6e9fbfafae0ea9e')
         .then(resultat => resultat.json())
         .then(json => json.city);
-    } else */
-    ville = "tokyo" /*document.querySelector('#ville').textContent;*/
-
+    } else 
+    ville = document.querySelector('#ville').textContent;*/
+    let ville;
+    ville = "Monaco"
 
     const meteo = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
@@ -105,7 +106,7 @@ async function main(withIP = true) {
     const prevision = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
                 .then(json => json)
-
+                console.log(meteo);
  displayWeatherInfos (meteo)
  displayForcastInfo (prevision)
 
@@ -154,7 +155,6 @@ function displayForcastInfo (data) {
     //document.querySelector("#descinq").textContent = capitalize(descinq);
    
 
-
 }
 function displayWeatherInfos (data) {
     const name = data.name;
@@ -167,6 +167,8 @@ function displayWeatherInfos (data) {
     const longitude = data.coord.lon;//longitude
     const latitude = data.coord.lat;//latitude
     const update = data.lastupdate;
+
+
 
     document.querySelector('#ville').textContent = name;
     document.querySelector('#temperature').textContent = Math.round(temperature*10)/10; 
