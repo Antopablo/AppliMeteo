@@ -25,6 +25,11 @@ background-size: cover;
     background-size: cover;
 }
 
+.haze{
+    background: url(mist.png) no-repeat center fixed;
+    background-size: cover;
+}
+
 .drizzle {
     background: url(drizzle.png) no-repeat center fixed;
     background-size: cover;
@@ -128,6 +133,10 @@ vitesse {
 }
 
 .tempPrevisions {
+    font-size: 25px;
+}
+
+#DateJour {
     font-size: 25px;
 }
 

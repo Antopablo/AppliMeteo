@@ -98,7 +98,7 @@ async function main(withIP = true) {
     } else 
     ville = document.querySelector('#ville').textContent;*/
     let ville;
-    ville = "Monaco"
+    ville = "Metz"
 
     const meteo = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
@@ -107,100 +107,101 @@ async function main(withIP = true) {
     const prevision = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
                 .then(json => json)
-                //console.log(meteo);
-                //console.log(prevision);
  displayWeatherInfos (meteo)
  displayForcastInfo (prevision)
 
  
 }  
 
+    /* ===== Récupérations des données prévisions ====== */
 function displayForcastInfo (data) {
 
     var jours = new Array("Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam");
     var mois = new Array("Janv", "Févr", "Mars", "Avr", "Mai", "Juin", "Juill", "Aout", "Sept", "Oct", "Nov", "Dec");
-
-    
    
-
+    //jour+1
     const tempun = data.list[7].main.temp;// temperature j+1
     const condun = data.list[7].weather[0].main;// icon j +1
-    //  const desun = data.list[7].weather[0].description;// description j+2
     var plusun = new Date();
     plusun.setTime(plusun.getTime() +24 * 3600 * 1000);
     var datePlusUn = jours[plusun.getDay()] + " ";   
      datePlusUn += plusun.getDate() + " ";   
-     datePlusUn += mois[plusun.getMonth()] + " ";  //datePlusUn --> date à j+1
-    // console.log(datePlusUn);
-
+     datePlusUn += mois[plusun.getMonth()] + " "; //datePlusUn --> date à j+1
+     
+    //jour+2
     const tempdeux = data.list[15].main.temp;// temperature j+2
     const conddeux = data.list[15].weather[0].main;// icon j+2
-    //  const desdeux = data.list[15].weather[0].description;// description j+2
     var plusdeux = new Date();
     plusdeux.setTime(plusdeux.getTime() +48 * 3600 * 1000);
     var datePlusDeux = jours[plusdeux.getDay()] + " ";   
     datePlusDeux += plusdeux.getDate() + " ";   
     datePlusDeux += mois[plusdeux.getMonth()] + " ";  //datePlusDeux --> date à j+2
-    //console.log(datePlusDeux); 
 
+
+    //jour+3
     const temptrois = data.list[23].main.temp;// temperature j+3
     const condtrois = data.list[23].weather[0].main;// icon j+3
-   // const destrois = data.list[23].weather[0].description;// descrition j+4
+
+
    var plustrois = new Date();
    plustrois.setTime(plustrois.getTime() +72 * 3600 * 1000);
    var datePlusTrois = jours[plustrois.getDay()] + " ";   
    datePlusTrois += plustrois.getDate() + " ";   
    datePlusTrois += mois[plustrois.getMonth()] + " ";  //datePlusTrois -->date à j+3 
-   //console.log(datePlusTrois);
 
+    //jour+4
     const tempquatre = data.list[31].main.temp;//temperature j+4
     const condquatre = data.list[31].weather[0].main;// icon j+4
-   // const desquatre = data.list[31].weather[0].description;// description j+4
+
    var plusquatre = new Date();
    plusquatre.setTime(plusquatre.getTime() +96 * 3600 * 1000);
    var datePlusQuatre = jours[plusquatre.getDay()] + " ";   
     datePlusQuatre += plusquatre.getDate() + " ";   
     datePlusQuatre += mois[plusquatre.getMonth()] + " ";  //datePlusQuatre --> date à j+4
-    //console.log(datePlusQuatre);
 
+
+    //jour+5
     const tempcinq = data.list[36].main.temp;//temperature j+5
     const condcinq = data.list[36].weather[0].main;// icon j+5
-    //  const descinq = data.list[39].weather[0].description;// descrition j+5
+
     var pluscinq = new Date();
     pluscinq.setTime(pluscinq.getTime() +120 * 3600 * 1000);
     var datePlusCinq = jours[pluscinq.getDay()] + " ";   
     datePlusCinq += pluscinq.getDate() + " ";   
     datePlusCinq += mois[pluscinq.getMonth()] + " ";  //datePlusCinq --> date à j+5
-    //console.log(datePlusCinq);
 
+    /* ======= Affichage prévisions =====*/
 
-
+    //jour+1
     document.querySelector('#tempun').textContent = Math.round(tempun*10)/10; // Math.round(temperature*10)/10 arrondi un chiffre derriere la virgule
     document.querySelector('#condun').className = weatherIcons[condun];
-   // document.querySelector("#desun").textContent = capitalize(desun);
-   // document.querySelector('').className =  datePlusUn;
-
+   document.querySelector('#datePlusUn').textContent =  datePlusUn;
+  
+    //jour+2
     document.querySelector('#tempdeux').textContent = Math.round(tempdeux*10)/10;
     document.querySelector('#conddeux').className = weatherIcons[conddeux];
-    //document.querySelector("#desdeux").textContent = capitalize(desdeux);
-    // document.querySelector('').className =  datePlusDeux;
+    document.querySelector('#datePlusDeux').textContent =  datePlusDeux;
 
+    //jour+3
     document.querySelector('#temptrois').textContent = Math.round(temptrois*10)/10;
     document.querySelector('#condtrois').className = weatherIcons[condtrois];
-   // document.querySelector("#destrois").textContent = capitalize(destrois);
-   // document.querySelector('').className =  datePlusTrois;
+   document.querySelector('#datePlusTrois').textContent =  datePlusTrois;
 
+    //jour+4
     document.querySelector('#tempquatre').textContent = Math.round(tempquatre*10)/10;
     document.querySelector('#condquatre').className = weatherIcons[condquatre];
-    //document.querySelector("#desquatre").textContent = capitalize(desquatre);
-    // document.querySelector('').className =  datePlusQuatre;
+    document.querySelector('#datePlusQuatre').textContent =  datePlusQuatre;
 
+
+    //jour+5
     document.querySelector('#tempcinq').textContent = Math.round(tempcinq*10)/10;
     document.querySelector('#condcinq').className = weatherIcons[condcinq];
-    //document.querySelector("#descinq").textContent = capitalize(descinq);
-    // document.querySelector('').className =  datePlusCinq;
+    document.querySelector('#datePlusCinq').textContent =  datePlusCinq;
+
 
 }
+
+/* ====== Récupération infos date du jour ====== */
 function displayWeatherInfos (data) {
 
     var jours = new Array("Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam");
@@ -227,7 +228,7 @@ function displayWeatherInfos (data) {
 
 
 
-
+    /* ===== Affichage date du jour ===== */
     document.querySelector('#ville').textContent = name;
     document.querySelector('#temperature').textContent = Math.round(temperature*10)/10; 
     document.querySelector("#conditions").textContent = capitalize(description);
@@ -237,7 +238,8 @@ function displayWeatherInfos (data) {
     document.querySelector('#pression').textContent = pression;
     document.querySelector('#longitude').textContent= longitude;
     document.querySelector('#latitude').textContent = latitude;
-    //document.querySelector('').textContent = dateJour;
+    document.querySelector('#DateJour').textContent = dateJour;
+
 
     document.body.className = conditions.toLowerCase();
 
