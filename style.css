@@ -120,8 +120,7 @@ vitesse {
     display: flex;
     justify-content: space-around;
     width: 50%;
-    margin: auto;
-    
+    margin: auto;    
 }
 
 #container_previsions {
