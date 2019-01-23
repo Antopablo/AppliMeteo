@@ -81,26 +81,14 @@ function capitalize(str) {
     return str[0].toUpperCase() + str.slice(1);
 }
 
-async function main(withIP = true) {
-   /* let ville;
+async function main(withIP=true) {
     if (withIP) {
-
-    
-    const ip = await fetch('https://api.ipify.org?format=json') 
-        .then(resultat => resultat.json())
-        .then(json => json.ip);
-
-
-
-    ville = await fetch('http://api.ipstack.com/' + ip + '?access_key=c0fa19618b5392d9c6e9fbfafae0ea9e')
-        .then(resultat => resultat.json())
-        .then(json => json.city);
-
-    } else 
-    ville = document.querySelector('#ville').textContent;*/
-    let ville;
-    ville = "Monaco"
-
+        ville ='metz';
+        withIP=false;
+    } else {
+        ville = document.querySelector('#ville').textContent;
+    }
+    console.log(ville);
     const meteo = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
                 .then(json => json)
