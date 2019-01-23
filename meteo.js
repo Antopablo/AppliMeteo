@@ -72,8 +72,9 @@ const weatherIcons = {
     "Clouds": "wi wi-day-cloudy",
     "Clear": "wi wi-day-sunny",
     "Snow": "wi wi-day-snow",
-    "mist": "wi wi-day-fog",
+    "Mist": "wi wi-day-fog",
     "Drizzle": "wi wi-day-sleet",
+    "Thunderstorm":"wi wi-day-lightning"
 }
 
 function capitalize(str) {
@@ -98,7 +99,7 @@ async function main(withIP = true) {
     } else 
     ville = document.querySelector('#ville').textContent;*/
     let ville;
-    ville = "Metz"
+    ville = "Monaco"
 
     const meteo = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
@@ -109,6 +110,7 @@ async function main(withIP = true) {
                 .then(json => json)
  displayWeatherInfos (meteo)
  displayForcastInfo (prevision)
+ console.log(meteo)
 
  
 }  
@@ -161,8 +163,8 @@ function displayForcastInfo (data) {
 
 
     //jour+5
-    const tempcinq = data.list[36].main.temp;//temperature j+5
-    const condcinq = data.list[36].weather[0].main;// icon j+5
+    const tempcinq = data.list[data.list.length -1].main.temp;//temperature j+5
+    const condcinq = data.list[data.list.length -1].weather[0].main;// icon j+5
 
     var pluscinq = new Date();
     pluscinq.setTime(pluscinq.getTime() +120 * 3600 * 1000);

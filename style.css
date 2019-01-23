@@ -1,5 +1,4 @@
-.clear {
-    
+.clear {    
 background: url(https://image.freepik.com/free-photo/blue-sky-with-cloud-clean-energy-power-clear-weather-background_43284-844.jpg) no-repeat center fixed;
 background-size: cover;
 }
@@ -11,29 +10,40 @@ background-size: cover;
 }
 
 .rain {
-    background: url(https://ak2.picdn.net/shutterstock/videos/6968032/thumb/1.jpg) no-repeat center fixed;
+    background: url(https://image.noelshack.com/fichiers/2019/04/3/1548235582-pluie.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
 .snow {
-    background: url(https://comps.canstockphoto.com/winter-blur-background-stock-images_csp54843853.jpg) no-repeat center fixed;
+    background: url(https://image.noelshack.com/fichiers/2019/04/3/1548235576-neige.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
+/*brume*/
 .mist {
-    background: url(mist.png) no-repeat center fixed;
+    background: url(https://image.noelshack.com/fichiers/2019/04/3/1548235575-brume.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
 .haze{
-    background: url(mist.png) no-repeat center fixed;
+    background: url(https://image.noelshack.com/fichiers/2019/04/3/1548235575-brume.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
+/*bruine*/
 .drizzle {
-    background: url(drizzle.png) no-repeat center fixed;
+    background: url(https://image.noelshack.com/fichiers/2019/04/3/1548235577-drizzle.png) no-repeat center fixed;
     background-size: cover;
 }
+
+/*orage*/
+.thunderstorm {
+    background: url(https://image.noelshack.com/fichiers/2019/04/3/1548235575-orage.jpg) no-repeat center fixed;
+    background-size: cover;
+}
+
+
+
 
 body {
 
@@ -87,18 +97,6 @@ h1:hover #tooltip {
 }
 
 
-txhumide {
-
-    font-size: 12px;
-    color: white;
-}
-
-
-vitesse {
-    font-size: 12px;
-    color: white;
-}
-
 #app {
     display: flex;
     justify-content: space-around;
@@ -106,7 +104,7 @@ vitesse {
     margin: auto;
 }
 *#app i {
-    font-size: 250px;
+    font-size: 200px;
 }
 
 
@@ -120,23 +118,22 @@ vitesse {
     display: flex;
     justify-content: space-around;
     width: 50%;
-    margin: auto;    
-}
-
-#container_previsions {
-    box-shadow: 0 0 15px 8px rgba(255, 255, 255, .2);
+    margin: auto;
+    
 }
 
 #previsions div i {
     font-size: 50px;
 }
 
-.tempPrevisions {
-    font-size: 25px;
-}
+
 
 #DateJour {
     font-size: 25px;
+}
+
+#container_previsions {
+    padding: 10px;
 }
 
 
