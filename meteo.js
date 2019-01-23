@@ -107,13 +107,14 @@ async function main(withIP = true) {
     const prevision = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + ville + '&appid=4873b4305c0e97ae99f6c53a1a348ac3&lang=fr&units=metric')
                 .then(resultat => resultat.json())
                 .then(json => json)
-                console.log(meteo);
+                //console.log(meteo);
+                //console.log(prevision);
  displayWeatherInfos (meteo)
  displayForcastInfo (prevision)
 
  
 }  
-//previsions
+
 function displayForcastInfo (data) {
 
     var jours = new Array("Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam");
@@ -130,7 +131,7 @@ function displayForcastInfo (data) {
     var datePlusUn = jours[plusun.getDay()] + " ";   
      datePlusUn += plusun.getDate() + " ";   
      datePlusUn += mois[plusun.getMonth()] + " ";  //datePlusUn --> date à j+1
-     //console.log(datePlusUn);
+    // console.log(datePlusUn);
 
     const tempdeux = data.list[15].main.temp;// temperature j+2
     const conddeux = data.list[15].weather[0].main;// icon j+2
@@ -162,8 +163,8 @@ function displayForcastInfo (data) {
     datePlusQuatre += mois[plusquatre.getMonth()] + " ";  //datePlusQuatre --> date à j+4
     //console.log(datePlusQuatre);
 
-    const tempcinq = data.list[39].main.temp;//temperature j+5
-    const condcinq = data.list[39].weather[0].main;// icon j+5
+    const tempcinq = data.list[36].main.temp;//temperature j+5
+    const condcinq = data.list[36].weather[0].main;// icon j+5
     //  const descinq = data.list[39].weather[0].description;// descrition j+5
     var pluscinq = new Date();
     pluscinq.setTime(pluscinq.getTime() +120 * 3600 * 1000);
@@ -221,7 +222,7 @@ function displayWeatherInfos (data) {
     const longitude = data.coord.lon;//longitude
     const latitude = data.coord.lat;//latitude
     const update = data.lastupdate;
-   // console.log(dateJour);
+    //console.log(dateJour);
 
 
 
@@ -236,7 +237,7 @@ function displayWeatherInfos (data) {
     document.querySelector('#pression').textContent = pression;
     document.querySelector('#longitude').textContent= longitude;
     document.querySelector('#latitude').textContent = latitude;
-    document.querySelector('').textContent = dateJour;
+    //document.querySelector('').textContent = dateJour;
 
     document.body.className = conditions.toLowerCase();
 
