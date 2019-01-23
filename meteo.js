@@ -137,9 +137,12 @@ function displayForcastInfo (data) {
     datePlusDeux += plusdeux.getDate() + " ";   
     datePlusDeux += mois[plusdeux.getMonth()] + " ";  //datePlusDeux --> date à j+2
 
+
     //jour+3
     const temptrois = data.list[23].main.temp;// temperature j+3
     const condtrois = data.list[23].weather[0].main;// icon j+3
+
+
    var plustrois = new Date();
    plustrois.setTime(plustrois.getTime() +72 * 3600 * 1000);
    var datePlusTrois = jours[plustrois.getDay()] + " ";   
@@ -149,15 +152,18 @@ function displayForcastInfo (data) {
     //jour+4
     const tempquatre = data.list[31].main.temp;//temperature j+4
     const condquatre = data.list[31].weather[0].main;// icon j+4
+
    var plusquatre = new Date();
    plusquatre.setTime(plusquatre.getTime() +96 * 3600 * 1000);
    var datePlusQuatre = jours[plusquatre.getDay()] + " ";   
     datePlusQuatre += plusquatre.getDate() + " ";   
     datePlusQuatre += mois[plusquatre.getMonth()] + " ";  //datePlusQuatre --> date à j+4
 
+
     //jour+5
     const tempcinq = data.list[36].main.temp;//temperature j+5
     const condcinq = data.list[36].weather[0].main;// icon j+5
+
     var pluscinq = new Date();
     pluscinq.setTime(pluscinq.getTime() +120 * 3600 * 1000);
     var datePlusCinq = jours[pluscinq.getDay()] + " ";   
@@ -170,7 +176,7 @@ function displayForcastInfo (data) {
     document.querySelector('#tempun').textContent = Math.round(tempun*10)/10; // Math.round(temperature*10)/10 arrondi un chiffre derriere la virgule
     document.querySelector('#condun').className = weatherIcons[condun];
    document.querySelector('#datePlusUn').textContent =  datePlusUn;
-
+  
     //jour+2
     document.querySelector('#tempdeux').textContent = Math.round(tempdeux*10)/10;
     document.querySelector('#conddeux').className = weatherIcons[conddeux];
@@ -186,10 +192,12 @@ function displayForcastInfo (data) {
     document.querySelector('#condquatre').className = weatherIcons[condquatre];
     document.querySelector('#datePlusQuatre').textContent =  datePlusQuatre;
 
+
     //jour+5
     document.querySelector('#tempcinq').textContent = Math.round(tempcinq*10)/10;
     document.querySelector('#condcinq').className = weatherIcons[condcinq];
     document.querySelector('#datePlusCinq').textContent =  datePlusCinq;
+
 
 }
 
@@ -231,6 +239,7 @@ function displayWeatherInfos (data) {
     document.querySelector('#longitude').textContent= longitude;
     document.querySelector('#latitude').textContent = latitude;
     document.querySelector('#DateJour').textContent = dateJour;
+
 
     document.body.className = conditions.toLowerCase();
 
